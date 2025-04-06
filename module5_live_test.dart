@@ -22,10 +22,12 @@ void main() {
   var sortedEntries = averageScores.entries.toList()
     ..sort((a, b) => b.value.compareTo(a.value));
 
-  Map<String, double> sortedAverageScores = {
-    for (var entry in sortedEntries) entry.key: entry.value
-  };
 
-
-  print(sortedAverageScores);
+  print("{");
+  for (var i = 0; i < sortedEntries.length; i++) {
+    var entry = sortedEntries[i];
+    String comma = i < sortedEntries.length - 1 ? "," : "";
+    print('  "${entry.key}": ${entry.value}$comma');
+  }
+  print("}");
 }
